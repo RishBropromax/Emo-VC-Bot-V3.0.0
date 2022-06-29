@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiMusicBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiMusicBot/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import asyncio
 import importlib
 import sys
@@ -32,7 +23,7 @@ async def init():
         and not config.STRING4
         and not config.STRING5
     ):
-        LOGGER("YukkiMusic").error(
+        LOGGER("EmoMusic").error(
             "No Assistant Clients Vars Defined!.. Exiting Process."
         )
         return
@@ -40,7 +31,7 @@ async def init():
         not config.SPOTIFY_CLIENT_ID
         and not config.SPOTIFY_CLIENT_SECRET
     ):
-        LOGGER("YukkiMusic").warning(
+        LOGGER("EmoMusic").warning(
             "No Spotify Vars defined. Your bot won't be able to play spotify queries."
         )
     try:
@@ -55,7 +46,7 @@ async def init():
     await app.start()
     for all_module in ALL_MODULES:
         importlib.import_module("YukkiMusic.plugins" + all_module)
-    LOGGER("Yukkimusic.plugins").info(
+    LOGGER("EmoMusic.plugins").info(
         "Successfully Imported Modules "
     )
     await userbot.start()
@@ -65,17 +56,17 @@ async def init():
             "http://docs.evostream.com/sample_content/assets/sintel1m720p.mp4"
         )
     except NoActiveGroupCall:
-        LOGGER("YukkiMusic").error(
+        LOGGER("EmoMusic").error(
             "[ERROR] - \n\nPlease turn on your Logger Group's Voice Call. Make sure you never close/end voice call in your log group"
         )
         sys.exit()
     except:
         pass
     await Yukki.decorators()
-    LOGGER("YukkiMusic").info("Yukki Music Bot Started Successfully")
+    LOGGER("EmoMusic").info("Emo Music Bot Started Successfully")
     await idle()
 
 
 if __name__ == "__main__":
     loop.run_until_complete(init())
-    LOGGER("YukkiMusic").info("Stopping Yukki Music Bot! GoodBye")
+    LOGGER("EmoMusic").info("Stopping Emo Music Bot! GoodBye")
